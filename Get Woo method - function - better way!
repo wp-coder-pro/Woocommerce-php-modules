@@ -5,6 +5,11 @@
   *	DESC: Check if method exists and if not return empty string.
   *
   *	INFO: This is required for preventing fatal errors in case a method is deprecated over time.
+  *       It is going to report in error-log or debug file file.
+  * 
+  * USAGE EXAMPLE:  bw_get_product_prop_value( $product, 'get_image', 'woocommerce_thumbnail' );  
+  *                 instead of 
+  *                 $product->get_image('woocommerce_thumbnail');
   *
   *	@param	obj				$class
   *					string		$method_name
