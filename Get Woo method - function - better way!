@@ -35,8 +35,7 @@ function bw_get_product_prop_value( $class, $method_name, $param1 = null, $param
     } else if ( $numargs === 5) {
       // Call method with only param1, param2 and parm3
       $prop = $class->{$method_name}( $param1, $param2, $param3 );
-    }
-    else if ( $numargs === 6) {
+    } else if ( $numargs === 6) {
       // Call method with param1, param2, parm3, param4
       $prop = $class->{$method_name}( $param1, $param2, $param3, $param4 );
     }
