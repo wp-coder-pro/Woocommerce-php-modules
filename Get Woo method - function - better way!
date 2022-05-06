@@ -1,0 +1,42 @@
+<?php
+/**
+  * Get class property value.
+  *
+  *	DESC: Check if method exists and if not return empty string.
+  *
+  *	INFO: This is required for preventing fatal errors in case a method is deprecated over time.
+  *
+  *	@param	obj				$class
+  *					string		$method_name
+  *					anything	$param1, $param2, $param3, $param4
+  *
+  *	@return it can be anything.
+  *
+  *	@since 1.0.0
+  */
+function bw_get_product_prop_value( $class, $method_name, $param1 = null, $param2 = null, $param3 = null, $param4 = null ) {
+  $prop = "";
+  if ( method_exists( $class , $method_name ) ) {
+    $numargs = func_num_args();
+    if ( $numargs === 2) {
+      // Call method without parameters
+      $prop = $class->{$method_name}();
+    } else if ( $numargs === 3) {
+      // Call method with only param1
+      $prop = $class->{$method_name}( $param1 );
+    } else if ( $numargs === 4) {
+      // Call method with only param1 and param2
+      $prop = $class->{$method_name}( $param1, $param2 );
+    } else if ( $numargs === 5) {
+      // Call method with only param1, param2 and parm3
+      $prop = $class->{$method_name}( $param1, $param2, $param3 );
+    }
+    else if ( $numargs === 6) {
+      // Call method with param1, param2, parm3, param4
+      $prop = $class->{$method_name}( $param1, $param2, $param3, $param4 );
+    }
+  } else {
+    error_log(print_r( $method_name . '() method does not exist anymore' ,true));
+  }
+  return $prop;
+}
